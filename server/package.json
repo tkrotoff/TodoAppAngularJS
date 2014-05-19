@@ -1,0 +1,8 @@
+{
+  "name": "TodoApp",
+  "dependencies": {
+    "underscore": "~1.6",
+    "express": "~4.2",
+    "body-parser": "~1.2"
+  }
+}

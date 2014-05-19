@@ -1,0 +1,22 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Body</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="todo in todos">
+      <td ng-class="{strike: todo.done}">{{todo.title}}</td>
+      <td ng-class="{strike: todo.done}">{{todo.body}}</td>
+      <td>
+        <a ng-href="#/todos/{{todo.id}}/show">Show</a> |
+        <a href="javascript:void(0)" ng-show="!todo.done" ng-click="markAs(todo, true)">Mark as done</a>
+        <a href="javascript:void(0)" ng-show="todo.done" ng-click="markAs(todo, false)">Mark as not done</a> |
+        <a ng-href="#/todos/{{todo.id}}/edit">Edit</a> |
+        <a href="javascript:void(0)" ng-click="delete(todo)">Delete</a>
+      </td>
+    </tr>
+  </tbody>
+</table>

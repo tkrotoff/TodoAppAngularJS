@@ -1,0 +1,11 @@
+{
+  "name": "TodoApp",
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "latest",
+    "gulp-less": "latest"
+  },
+  "engines": {
+    "node": ">=0.10"
+  }
+}
