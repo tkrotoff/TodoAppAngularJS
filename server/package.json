@@ -1,5 +1,5 @@
 {
-  "name": "TodoApp",
+  "name": "TodoAppServer",
   "dependencies": {
     "underscore": "~1.6",
     "express": "~4.2",

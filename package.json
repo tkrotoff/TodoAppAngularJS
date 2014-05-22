@@ -3,7 +3,15 @@
   "dependencies": {},
   "devDependencies": {
     "gulp": "latest",
-    "gulp-less": "latest"
+    "gulp-connect": "latest",
+    "gulp-less": "latest",
+    "gulp-watch": "latest",
+    "gulp-usemin": "latest",
+    "gulp-uglify": "latest",
+    "gulp-minify-html": "latest",
+    "gulp-minify-css": "latest",
+    "gulp-rev": "latest",
+    "gulp-clean": "latest"
   },
   "engines": {
     "node": ">=0.10"

@@ -2,6 +2,8 @@
 
 Demonstrates a simple CRUD app using AngularJS and Node.js for the backend.
 
+Nothing fancy: look and ergonomics are bad, that's not the point of it.
+
 This is how I build AngularJS apps.
 
 Compare to other AngularJS demos, this one focus on:
@@ -9,7 +11,7 @@ Compare to other AngularJS demos, this one focus on:
 - A "regular" HTTP layer: [TodosHttpService.js](https://github.com/tkrotoff/TodoAppAngularJS/blob/master/app/Todos/TodosHttpService.js)
 - Organization by features instead of types (views, controllers, services...), check [app](https://github.com/tkrotoff/TodoAppAngularJS/tree/master/app) directory
 
-# External documentation
+## External documentation
 
 Here two tutorials (that I liked) to start with AngularJS:
 - [AngularJS end-to-end web app tutorial Part I](http://www.youtube.com/watch?v=Ja2xDrtylBw), bad sound quality but nicely explained
@@ -28,9 +30,30 @@ Recommended books:
 - [Mastering Web Application Development with AngularJS](http://www.amazon.com/Mastering-Web-Application-Development-AngularJS/dp/1782161821), 372 pages
 - [ng-book - The Complete Book on AngularJS](http://www.amazon.com/ng-book-Complete-AngularJS-Ari-Lerner/dp/099134460X), 624 pages
 
-# General files and directories organization
+## General files and directories organization
 
 Traditional AngularJS apps follow the "1 directory = 1 type" convention. This web app on the other hand follow the "1 directory = 1 feature" convention when applicable.
 - See [Code Organization in Large AngularJS and JavaScript Applications](http://cliffmeyers.com/blog/2013/4/21/code-organization-angularjs-javascript)
 - See [Building large apps with AngularJS](https://coderwall.com/p/y0zkiw)
 - Check [app](https://github.com/tkrotoff/TodoAppAngularJS/tree/master/app) directory
+
+## How to run the serve (APIs)
+
+- Install [Node.js](http://nodejs.org/)
+- Open a console
+- Go to directory [server](https://github.com/tkrotoff/TodoAppAngularJS/tree/master/server)
+- Run command line `npm install`
+- To start the server, run `npm start`
+
+## How to run the web app
+
+### Using file://
+
+After closing Chrome, run a new Chrome process using [`--disable-web-security`](http://stackoverflow.com/questions/3102819/chrome-disable-same-origin-policy) and [`--allow-file-access-from-files`](http://www.chrome-allow-file-access-from-file.com/)
+
+### Using Node.js web server
+
+- Open a console
+- Go to directory root directory
+- Run command line `gulp server`
+- Open [http://localhost:8080/app](http://localhost:8080/app)

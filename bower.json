@@ -1,5 +1,5 @@
 {
-  "name": "todos",
+  "name": "TodoApp",
 
   "dependencies": {
     "angular": "~1.2",
