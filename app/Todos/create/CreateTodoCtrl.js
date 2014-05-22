@@ -1,11 +1,8 @@
 'use strict';
 
-/**
- * Template: create.html
- */
 app.controller('CreateTodoCtrl',
-  ['$scope', 'Todo', 'Todos', 'TodosHttpService',
-  function($scope, Todo, Todos, TodosHttpService) {
+['$scope', 'Todo', 'Todos', 'TodosHttpService',
+function($scope, Todo, Todos, TodosHttpService) {
 
   console.log('CreateTodoCtrl', 'created');
 

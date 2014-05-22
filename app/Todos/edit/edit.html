@@ -1,0 +1,23 @@
+<h1 class="page-header">Edit todo</h1>
+
+<form name="todoForm" class="form-horizontal" novalidate>
+
+  <ng-include src="'Todos/common/_form.html'"></ng-include>
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-8">
+      <button type="submit"
+              ng-click="save()"
+              class="btn btn-primary"
+              ng-disabled="todoForm.$invalid">
+        <span class="glyphicon glyphicon-floppy-disk"></span> Save
+      </button>
+
+      <button type="submit"
+              ng-click="delete()"
+              class="btn btn-danger">
+        <span class="glyphicon glyphicon-trash"></span> Delete
+      </button>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,20 @@
+<div class="form-group">
+  <label for="title" class="col-sm-2 control-label">Title</label>
+  <div class="col-sm-4" ng-class="{'has-error': todoForm.title.$invalid}">
+    <input type="text" name="title" id="title" ng-model="todo.title" class="form-control" required>
+  </div>
+</div>
+
+<div class="form-group">
+  <label for="body" class="col-sm-2 control-label">Body</label>
+  <div class="col-sm-4" ng-class="{'has-error': todoForm.body.$invalid}">
+    <input type="text" name="body" id="body" ng-model="todo.body" class="form-control" required>
+  </div>
+</div>
+
+<div class="form-group">
+  <label for="done" class="col-sm-2 control-label">Done</label>
+  <div class="col-sm-4" ng-class="{'has-error': todoForm.done.$invalid}">
+    <input type="checkbox" name="done" id="done" ng-model="todo.done">
+  </div>
+</div>

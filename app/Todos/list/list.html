@@ -15,7 +15,7 @@
         <a href="javascript:void(0)" ng-show="!todo.done" ng-click="markAs(todo, true)">Mark as done</a>
         <a href="javascript:void(0)" ng-show="todo.done" ng-click="markAs(todo, false)">Mark as not done</a> |
         <a ng-href="#/todos/{{todo.id}}/edit">Edit</a> |
-        <a href="javascript:void(0)" ng-click="delete(todo)">Delete</a>
+        <a ng-click="delete(todo)">Delete</a>
       </td>
     </tr>
   </tbody>

@@ -1,0 +1,18 @@
+<h1 class="page-header">New todo</h1>
+
+<form name="todoForm" class="form-horizontal" novalidate>
+
+  <ng-include src="'Todos/common/_form.html'"></ng-include>
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-4">
+      <button type="submit"
+              ng-click="create()"
+              class="btn btn-primary"
+              ng-disabled="todoForm.$invalid">
+        <span class="glyphicon glyphicon-floppy-disk"></span> Create
+      </button>
+    </div>
+  </div>
+
+</form>

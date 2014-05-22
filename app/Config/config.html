@@ -1,9 +1,11 @@
+<h1 class="page-header">Config</h1>
+
 <form class="form-horizontal">
 
   <div class="form-group">
     <label for="WEB_SERVICE_HOSTNAME" class="col-sm-2 control-label">Web service address</label>
     <div class="col-sm-4">
-      <input type="text" id="WEB_SERVICE_HOSTNAME" ng-model="WEB_SERVICE_HOSTNAME" class="form-control">
+      <input type="text" id="WEB_SERVICE_HOSTNAME" ng-model="WEB_SERVICE_HOSTNAME" class="form-control" required>
     </div>
   </div>
 
@@ -17,7 +19,7 @@
         <span class="glyphicon glyphicon-trash"></span> Clear localStorage
       </button>
 
-      <strong ng-show="saved">You should reload the page</strong>
+      <strong ng-show="reload">You should reload the page</strong>
     </div>
   </div>
 

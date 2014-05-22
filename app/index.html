@@ -10,18 +10,18 @@
   <meta name="viewport" content="width=device-width">
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-  <!-- build:css({.tmp,app}) styles/styles.css -->
+  <!-- build:css styles/styles.css -->
   <link rel="stylesheet" href="styles/main.css">
   <!-- endbuild -->
 </head>
 
 <body>
-  <div ng-include="'layouts/navbar.html'"></div>
+  <ng-include src="'layouts/navbar.html'"></ng-include>
 
   <div class="container">
     <div ng-view></div>
 
-    <div ng-include="'layouts/footer.html'"></div>
+    <ng-include src="'layouts/footer.html'"></ng-include>
   </div>
 
   <!-- build:js scripts/jquery.js -->
@@ -37,8 +37,6 @@
   <!-- endbuild -->
 
   <!-- build:js scripts/bootstrap-plugins.js -->
-  <script src="../bower_components/bootstrap/js/alert.js"></script>
-  <script src="../bower_components/bootstrap/js/collapse.js"></script>
   <script src="../bower_components/bootstrap/js/dropdown.js"></script>
   <!-- endbuild -->
 
@@ -56,10 +54,11 @@
   <script src="Todos/Todo.js"></script>
   <script src="Todos/Todos.js"></script>
   <script src="Todos/TodosHttpService.js"></script>
-  <script src="Todos/ListTodosCtrl.js"></script>
-  <script src="Todos/ShowTodoCtrl.js"></script>
-  <script src="Todos/CreateTodoCtrl.js"></script>
-  <script src="Todos/EditTodoCtrl.js"></script>
+  <script src="Todos/common/GetTodo.js"></script>
+  <script src="Todos/list/ListTodosCtrl.js"></script>
+  <script src="Todos/create/CreateTodoCtrl.js"></script>
+  <script src="Todos/edit/EditTodoCtrl.js"></script>
+  <script src="Todos/show/ShowTodoCtrl.js"></script>
   <!-- endbuild -->
 
 </body>

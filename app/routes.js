@@ -3,19 +3,19 @@
 app.config(['$routeProvider', function($routeProvider) {
   $routeProvider
     .when('/', {
-      templateUrl: 'Todos/list.html',
+      templateUrl: 'Todos/list/list.html',
       controller: 'ListTodosCtrl'
     })
     .when('/todos/:id/show', {
-      templateUrl: 'Todos/show.html',
-      controller: 'EditTodoCtrl'
+      templateUrl: 'Todos/show/show.html',
+      controller: 'ShowTodoCtrl'
     })
     .when('/todos/create', {
-      templateUrl: 'Todos/create.html',
+      templateUrl: 'Todos/create/create.html',
       controller: 'CreateTodoCtrl'
     })
     .when('/todos/:id/edit', {
-      templateUrl: 'Todos/edit.html',
+      templateUrl: 'Todos/edit/edit.html',
       controller: 'EditTodoCtrl'
     })
 

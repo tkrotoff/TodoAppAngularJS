@@ -1,8 +1,5 @@
 'use strict';
 
-/**
- * Template: list.html
- */
 app.controller('ListTodosCtrl',
   ['$scope', 'Todo', 'Todos', 'TodosHttpService',
   function($scope, Todo, Todos, TodosHttpService) {
