@@ -3,6 +3,19 @@
 app.service('TodosHttpService', ['$q', '$http', 'Todo', function($q, $http, Todo) {
   var self = this;
 
+  function parseErrors(errors) {
+    var error = 'Unknown error';
+    if (errors !== undefined) {
+      if (errors.id !== undefined && errors.id === 'not found') {
+        error = 'Todo id not found';
+      }
+      else {
+        // ...
+      }
+    }
+    return error;
+  }
+
   self.list = function() {
     return $http.get(Config.WEB_SERVICE_HOSTNAME + '/todos').then(
       function(response) {
@@ -13,7 +26,7 @@ app.service('TodosHttpService', ['$q', '$http', 'Todo', function($q, $http, Todo
         return todos;
       },
       function(response) {
-        var error = response.data;
+        var error = parseErrors(response.data.errors);
         return $q.reject(error);
       }
     );
@@ -25,7 +38,7 @@ app.service('TodosHttpService', ['$q', '$http', 'Todo', function($q, $http, Todo
         return Todo.createFromServer(response.data);
       },
       function(response) {
-        var error = response.data;
+        var error = parseErrors(response.data.errors);
         return $q.reject(error);
       }
     );
@@ -37,7 +50,7 @@ app.service('TodosHttpService', ['$q', '$http', 'Todo', function($q, $http, Todo
         return Todo.createFromServer(response.data);
       },
       function(response) {
-        var error = response.data;
+        var error = parseErrors(response.data.errors);
         return $q.reject(error);
       }
     );
@@ -48,7 +61,7 @@ app.service('TodosHttpService', ['$q', '$http', 'Todo', function($q, $http, Todo
       function(response) {
       },
       function(response) {
-        var error = response.data;
+        var error = parseErrors(response.data.errors);
         return $q.reject(error);
       }
     );
@@ -59,7 +72,7 @@ app.service('TodosHttpService', ['$q', '$http', 'Todo', function($q, $http, Todo
       function(response) {
       },
       function(response) {
-        var error = response.data;
+        var error = parseErrors(response.data.errors);
         return $q.reject(error);
       }
     );

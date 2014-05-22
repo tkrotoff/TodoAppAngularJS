@@ -1,5 +1,7 @@
 <h1 class="page-header">Edit todo</h1>
 
+<p class="bg-danger" ng-show="error !== undefined">Error: {{error}}</p>
+
 <form name="todoForm" class="form-horizontal" novalidate>
 
   <ng-include src="'Todos/common/_form.html'"></ng-include>
@@ -15,7 +17,8 @@
 
       <button type="submit"
               ng-click="delete()"
-              class="btn btn-danger">
+              class="btn btn-danger"
+              ng-disabled="todo === undefined">
         <span class="glyphicon glyphicon-trash"></span> Delete
       </button>
     </div>

@@ -10,16 +10,24 @@ function(Todos, TodosHttpService) {
     var id = parseInt($routeParams.id, 10);
 
     // Can query the server...
-    TodosHttpService.get(id).then(function(todo) {
-      $scope.todo = todo;
-    });
+    TodosHttpService.get(id).then(
+      function(todo) {
+        $scope.todo = todo;
+      },
+      function(error) {
+        $scope.error = error;
+      }
+    );
 
     // ...or get the item from Todos.list
     $scope.$watchCollection(
       function() { return Todos.list },
       function(newValue, oldValue) {
-        if (Todos.list !== undefined || Todos.list.length > 0) {
+        if (Todos.list !== undefined && Todos.list.length > 0) {
           $scope.todo = _.findWhere(Todos.list, {id: id});
+          if ($scope.todo === undefined) {
+            $scope.error = 'Id not found';
+          }
         }
       }
     );

@@ -19,17 +19,27 @@ app.controller('ListTodosCtrl',
   $scope.markAs = function(todo, done) {
     var tmp = new Todo(todo);
     tmp.done = done;
-    TodosHttpService.update(todo.id, tmp).then(function() {
-      var todo2 = _.findWhere(Todos.list, {id: todo.id});
-      todo2.done = done;
-    });
+    TodosHttpService.update(todo.id, tmp).then(
+      function() {
+        var todo2 = _.findWhere(Todos.list, {id: todo.id});
+        todo2.done = done;
+      },
+      function(error) {
+        $scope.error = error;
+      }
+    );
   };
 
   $scope.delete = function(todo) {
-    TodosHttpService.delete(todo.id).then(function() {
-      var todo2 = _.findWhere(Todos.list, {id: todo.id});
-      Todos.list.splice(_.indexOf(Todos.list, todo2), 1);
-    });
+    TodosHttpService.delete(todo.id).then(
+      function() {
+        var todo2 = _.findWhere(Todos.list, {id: todo.id});
+        Todos.list.splice(_.indexOf(Todos.list, todo2), 1);
+      },
+      function(error) {
+        $scope.error = error;
+      }
+    );
   };
 
   $scope.$on('$destroy', function() {
