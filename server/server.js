@@ -1,8 +1,8 @@
 'use strict';
 
-var _ = require('underscore');
-var express = require('express');
-var bodyParser = require('body-parser');
+var _ = require('underscore'),
+   express = require('express'),
+   bodyParser = require('body-parser');
 
 var app = express();
 app.use(bodyParser());
@@ -16,48 +16,59 @@ var todos = [
 ];
 
 app.get('/todos', function(req, res) {
-  console.log('GET /todos');
-
   res.send(todos); // 200 OK
+
+  console.log('GET /todos');
 });
 
 app.get('/todos/:id', function(req, res) {
   var id = parseInt(req.params.id, 10);
 
   var todo = _.findWhere(todos, {id: id});
+  if (todo === undefined) {
+    res.send(422, {errors: {id: 'not found'}}); // 422 Unprocessable Entity
+  } else {
+    res.send(todo); // 200 OK
+  }
+
   console.log('GET /todos/' + id + ':', todo);
-
-  res.send(todo); // 200 OK
-});
-
-app.post('/todos', function(req, res) {
-  var todo = req.body;
-  todo.id = todos.length;
-  todos.unshift(todo);
-  console.log('POST /todos', todo);
-
-  res.send(201, todo); // 201 Created
 });
 
 app.put('/todos/:id', function(req, res) {
   var id = parseInt(req.params.id, 10);
 
   var todo = _.findWhere(todos, {id: id});
-  _.extend(todo, req.body);
-  todo.id = id;
-  console.log('PUT /todos/' + id, todo);
+  if (todo === undefined) {
+    res.send(422, {errors: {id: 'not found'}}); // 422 Unprocessable Entity
+  } else {
+    _.extend(todo, req.body);
+    res.send(204); // 204 No Content
+  }
 
-  res.send(204); // 204 No Content
+  console.log('PUT /todos/' + id, todo);
+});
+
+app.post('/todos', function(req, res) {
+  var todo = req.body;
+  todo.id = todos.length;
+  todos.unshift(todo);
+  res.send(201, todo); // 201 Created
+
+  console.log('POST /todos', todo);
 });
 
 app.delete('/todos/:id', function(req, res) {
   var id = parseInt(req.params.id, 10);
 
   var todo = _.findWhere(todos, {id: id});
-  todos.splice(_.indexOf(todos, todo), 1);
-  console.log('DELETE /todos/' + id);
+  if (todo === undefined) {
+    res.send(422, {errors: {id: 'not found'}}); // 422 Unprocessable Entity
+  } else {
+    todos.splice(todos.indexOf(todo), 1);
+    res.send(204); // 204 No Content
+  }
 
-  res.send(204); // 204 No Content
+  console.log('DELETE /todos/' + id);
 });
 
 
