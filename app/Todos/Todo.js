@@ -6,9 +6,7 @@ app.factory('Todo', [function() {
 
     angular.extend(self, data);
 
-    self.computeDueDate = function() {
-      return '';
-    }
+    // Add other methods here
   };
 
   // In case the data from server needs to be modified/cleaned/adapted
@@ -22,6 +20,8 @@ app.factory('Todo', [function() {
 
     return new Todo(tmp);
   };
+
+  // Add other static functions here
 
   return Todo;
 }]);

@@ -55,5 +55,6 @@ After closing Chrome, run a new Chrome process using [`--disable-web-security`](
 
 - Open a console
 - Go to directory root directory
-- Run command line `gulp server`
+- Run command line `npm install`
+- Start the server with `gulp server`
 - Open [http://localhost:8080/app](http://localhost:8080/app)

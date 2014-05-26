@@ -8,4 +8,6 @@ app.service('Todos', ['TodosHttpService', function(TodosHttpService) {
   TodosHttpService.list().then(function(todos) {
     self.list = todos;
   });
+
+  // Add other methods here
 }]);
